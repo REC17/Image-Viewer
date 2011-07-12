@@ -25,12 +25,12 @@ class CompImage(QGraphicsItem):
         x = int(event.pos().x())
         y = int(event.pos().y())
         pixloc = x + y*1000
-        self.livebrowser.setText(QString("X..." + str(x) + "    Y..." + str(y) + "    Pixel Value..." + str(self.rawimage[y, x])))
+        self.livebrowser.setText(QString("X..." + str(x) + " Y..." + str(y) + " Pixel Value..." + str(self.rawimage[y, x])))
         
         for i in range(3):
             for j in range(3):
                 pass
-          #      print self.rawimage[y + i-1, x + j-1].astype(numpy.uint8)
+          # print self.rawimage[y + i-1, x + j-1].astype(numpy.uint8)
             
     
     def searchExecuted(self, x, y):
@@ -38,7 +38,7 @@ class CompImage(QGraphicsItem):
         
     def mousePressEvent(self, event):
         x = event.pos().x()
-        y = event.pos().y()      
+        y = event.pos().y()
         self.selectedbrowser.append(QString(str(x) + "\t" + str(y) + "\t" + str(self.rawimage[y, x])))
 
         if self.compC.dotpermission == True:
@@ -51,4 +51,5 @@ class CompImage(QGraphicsItem):
     def paint(self, painter, option, widget=None):
         painter.drawImage(self.target, self.Image, self.source)
         painter.drawRect(self.target)
+
 
